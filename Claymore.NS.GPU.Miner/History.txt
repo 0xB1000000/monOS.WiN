@@ -1,0 +1,21 @@
+
+
+v1.2
+---------------------------------------------------------------------
+
+- improved stratum routines to support more pools.
+- added RX550 card support.
+
+
+
+v1.1
+---------------------------------------------------------------------
+
+- fixed issue with rejected shares.
+- reduced CPU usage for systems with a lot of GPUs.
+
+
+
+v1.0
+---------------------------------------------------------------------
+- First version.
