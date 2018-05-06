@@ -1,0 +1,12 @@
+08:18:23:095	2664	
+08:18:23:095	2664	ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+08:18:23:095	2664	บ              Claymore CryptoNote CPU Miner v4.0                บ
+08:18:23:095	2664	ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+08:18:23:314	2664	XMR: 1 pool is specified
+08:18:23:314	2664	Main pool is test-xmv.leafpool.com:9992
+08:18:23:314	2664	64-bit version
+08:18:23:314	2664	CPU does not support AES-NI - slower mining!
+08:18:23:314	2664	Logical CPU cores: 8
+08:18:23:314	2664	Number of threads: Autoselection...
+08:18:23:314	2664	Using 8 threads
+08:18:23:314	2664	scfg: 0
