@@ -1,0 +1,133 @@
+PhoenixMiner 2.9e
+-----------------
+  - Added detection of AMD Compute mode in the supported drivers and GPUs. The detection is performed when the miner starts
+    and if the Compute mode is off on some of the GPUs, you will get warning messages.
+  - Added console command 'y' to turn on the AMD Compute mode if it is not turned on on some of the cards.
+  - Added -nvf command line option to control Nvidia kernel sync frequency (it is similar to the -clf command line
+	option for AMD cards). Try -nvf 2 if you have permanent hashrate drops after pausing and resuming mining on Nvidia cards
+  - Small improvement in the -logfile option: now you can insert $ chararcter in the name, which will be removed from the name
+    but will force the miner to overwrite the log file on each startup, instead of appending to it.
+  - Fixed a problem with miner restart on some CUDA errors with Nvidia cards when the miner crashes instead of restarting    
+  
+PhoenixMiner 2.9d
+-----------------
+  - Additional improvements in the kernels for AMD GPUs, providing higher hashrate, lower percentage of
+    stale shares, and slightly lower power consumption. The new kernels are used by default for AMD GPUs.
+	You can still revert to using the old kernels with -clnew 0
+  - Note that the optimal -gt values for the new kernels may be different than before (but should be
+    in the same ballpark)
+  - Added optimized kernels for AMD RX550
+  - Alternative (-clkernel 2) kernels for AMD RX550, RX460/560, and 285/380. The alternative kernels for
+    Polaris (RX470/480/570/580) are also there.
+  - New Nvidia kernels, providing higher hashrate and much lower percentage of stale shares. You can still
+    revert to using the old CUDA kernels with -nvnew 0. The mining intensity (-mi) is by default 12 when
+	using the new Nvidia kernels and 10 for the old kernels
+  - New -clf parameter to control how often the OpenCL (AMD) kernels will sync (0 - never, 1 - sometimes (default),
+    2 - always). Try this if you have unstable hashrate on AMD GPU but in general, it is best to leave it alone
+  - Added -logfile command line option to be able to set the name of the logfile. If you place an asterisk (*)
+    in the logfile name, it will be replaced by the current date/time to create a unique name every time
+	PhoenixMiner is started. If there is no asterisk in the logfile name, the new log will be added to the
+	same file
+  - Added -logdir command line option to specify different folder for the logfiles
+  - Added -logsmaxsize command line option to specify the max size of the log files (200 MB by default)
+  - Many small fixes and changes
+  
+PhoenixMiner 2.8c
+-----------------
+  - Added new AMD kernels for all supported AMD GPUs, providing higher hashrate and lower percentage of
+    stale shares. The new kernels are used by default for AMD GPUs. You can also revert to using the old kernels with
+	-clnew 0.
+  - Some stability improvements with the new kernels
+  
+PhoenixMiner 2.8b
+-----------------
+  - New AMD kernels for AMD RX470/480/570/580, Vega, and Fury GPUs, providing higher hashrate and lower percentage of
+    stale shares. The new kernels are used by default for these GPUs. You can also revert to using the old kernels with
+	-clnew 0.
+  - When using the new kernels, the mining intensity is 12 by default instead of 10.
+  - The mining intensity range is now up to 14. Use high -mi only with the new AMD kernels as for the other kernels
+    the stale shares will increase too much.
+  - Many small improvements and fixes
+  
+PhoenixMiner 2.8a
+-----------------
+  - Small CUDA kernel stability improvements that also may (very) slightly increase the speed of Nvidia cards
+  - CPU utilization during normal operation is lowered by about a factor of 10 regardless of the number of GPUs
+  - Added support for -tstop and -tstart options to stop mining on given GPU if the temperature rise above specified value
+    and restart it after it cools down below -tstart temperature
+  - Fixed the problem with console window freezing after scrolling
+  - Implemented new -gpow n option to lower the GPU utilization (default: 100, the value is the desired GPU utilization in percent)
+  - Implemented the -li option to lower the intensity (use this instead of -gpow if you are already using -mi with low values)
+  - Improved GPU speed statistics, using moving average window for each GPU. You can change the size of the window with the
+	-gswin option (5-30 seconds; default 15; use 0 to revert to the old way of using 5 second "quants" which are independent of each other).
+  - Specify GPU number above 9 by typing three-digit sequence at the console (e.g. type 011 to pause or resume GPU11)  
+  - The command-line options are now case-insensitive
+  - Show the SSL and HTTP schemes to indicate the type of connection
+  - Added support for the miner_getstat2 remote monitoring request
+
+PhoenixMiner 2.7c
+-----------------
+  - Added support for secure mining using SSL (supported by ethermine.org) to prevent the increasing IP hijacking attacks.
+    To connect to a secured pool, use the ssl:// prefix (e.g. -pool ssl://eu1.ethermine.org:5555)
+  - Added support for solo mining (HTTP GetWork protocol)
+  - Other small changes and fixes
+  
+PhoenixMiner 2.7b
+-----------------
+  - Added support for controlling fans, clocks and voltages on AMD cards (use the command-line options -tt, -fanmin, -fanmax,
+      -tmax, -powlim, -cclock, -cvddc, -mclock, -mvddc).
+  - Improved GPU matching code to fix a problem with mismatched temperatures/fan speeds on Nvidia GPUs
+  
+PhoenixMiner 2.7a
+-----------------
+  - Improvements in switching between normal mode and devfee mode to avoid some GPUs "losing" their overcloking/undervolting settings
+  - Increase the frequency of getWork requests to lower the probability of stale shares
+  - Added support for direct mining of Akroma, WhaleCoin, and Victorium without DevFee switching
+  - Print warning messages and more detailed error messages when the virtual memory is low, or GPU memory is not enough for DAG allocation
+  - Other small improvements and fixes
+  
+PhoenixMiner 2.6
+----------------
+  - Possible fix for the increase of stale shares that some are experiencing with ver 2.5d
+  - Made the new OpenCL initialization code optional (use -altinit option to use the new code if you experience crashes on startup)
+  - Added -lidag command-line option to allow slower but less intense DAG generation to prevent crashes on DAG switches (AMD only)  
+  - Added a new interactive command in benchmark mode: press 'd' to advance to the next DAG epoch. You can use this option to test
+	  if your rig will be stable during the DAG switches, instead of waiting up to 5 days to find out if this is the case.
+  - Turn off the Quick Edit functionality of the console to prevent freezing of the miner when clicking in its window (Windows 10)
+  - Show the IP address of the pool when connecting
+  - Show a '>' character in front of the pool address in the remote manager when trying to connect to a pool
+  - Watchdog now also monitors the main thread for freezing
+  
+PhoenixMiner 2.5d
+-----------------
+  - Removed the usage of ethermine/ethpool for devfee
+  - Added -eres command-line option to allocate DAG buffers big enough for 2 or more DAG epochs after the current one
+  - New OpenCL initialization code for better stability on DAG generation in multi-GPU rigs  
+  - Stop mining if the connection can't be restored after some time to avoid wasting electricity
+  - Recognize failed connection attempt even if the pool doesn't close the socket
+  - Longer reconnect delay
+  - Several other small changes and impovments, mainly for stability
+  
+PhoenixMiner 2.4
+----------------
+  - Added optimized kernels for AMD Tahiti GPUs (280/280X/7950/7970)
+  - Added -minRigSpeed (or -minspeed) option to restart the rig if the 5 min average speed is below specified threshold
+  - Added support for mining Pegascoin (PGC) without DAG switch on devfee
+  - Bugfix: sometimes reconnect failed with one or more "Connection attempt aborted" errors
+  - Bugfix: sometimes the temperatures/fan speeds were shown only for the first GPU
+  - Bugfix: some Vega GPUs were not properly detected and used generic OpenCL kernels
+  
+PhoenixMiner 2.3
+----------------
+  - Added alternative kernels for RX470/480/570/580, which can be used by specifying -clKernel 2 (or -asm 2) on the command-line. In some cases these can be faster than the default kernels but more often than not you are better off with the default kernels. Additionally, the hashrate can be more unstable with the alternative kernels.
+  - Fixed a problem with not reporting temperatures/fan speed with the latest AMD drivers
+  - Fixed a problem with Intel iGPUs, which PhoenixMiner sometimes tries to use for mining, fails and then restarts and tries again, and so on
+  
+PhoenixMiner 2.2b
+-----------------
+  - Added support for Ellaism and Metaverse ETP
+  - Minor bugfixes
+  
+PhoenixMiner 2.1
+-----------------
+  - Initial public release
