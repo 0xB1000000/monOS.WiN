@@ -1,0 +1,13 @@
+These are example config files for certain gpu / bios combinations.
+Use them at your own risk.
+
+You can create clock-configs for individual rigs...
+
+Name convention:
+
+clocks-WORKERNAME.bat
+
+(Set Worker in Setup.bat, default = Computername)
+
+Will be included when launching a Miner,
+If not present, Bios default values (setup.bat) are used.

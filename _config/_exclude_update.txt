@@ -1,0 +1,7 @@
+setup.bat
+_shortcuts\
+inc\
+install.bat
+build.bat
+_exclude.txt
+_exclude_update.txt
