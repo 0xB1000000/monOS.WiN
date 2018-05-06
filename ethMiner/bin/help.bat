@@ -1,0 +1,2 @@
+ethminer --help
+pause
