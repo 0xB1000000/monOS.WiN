@@ -1,0 +1,44 @@
+######################################################################################
+# 
+#                                                     DUAL.MiNER.CONFiG
+#
+#####################################################################################
+
+#########################################################
+# CLOCKS
+########################################################
+
+-cclock %DUALCCLOCK%
+-cvddc %DUALCVDDC%
+
+-mclock %DUALMCLOCK%
+-mvddc %DUALMVDDC%
+
+-powlim %DUALPOWLIM%
+
+#########################################################
+# VARiOUS SETTiNGS
+########################################################
+
+-tt 58
+
+-lidag 1
+-gser 1
+
+-dcri %DCRI%
+
+-nofee %NOFEE%
+-allcoins etc
+
+-mode %MODE%
+
+-retrydelay %RETRY%
+-ftime 10
+
+-ejobtimeout 4
+-djobtimeout 4
+
+-mport %DUALREMPORT%
+-mpsw %REMPASS%
+
+-dbg %DEBUG%

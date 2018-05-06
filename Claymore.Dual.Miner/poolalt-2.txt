@@ -1,0 +1,24 @@
+
+#########################################################
+# ALT COIN SETUP
+########################################################
+
+# XVG
+
+-dpool stratum+tcp://xvg.antminepool.com:9008
+-dwal %XVGWALLET%.%WORKER%
+-dcoin blake2s
+-dpsw c=XVG
+
+#-dwal %XVGWALLET%
+#-dpool stratum+tcp://XVG-blake2s.mine.zpool.ca:5766
+#-dcoin blake2s
+#-dpsw c=XVG
+
+-dcri 50
+
+########################################################################
+# 
+#                                                            !EOF
+#
+#######################################################################
