@@ -10,6 +10,6 @@
 
 -pow7 1
 
--o stratum+ssl://test-xmv.leafpool.com:9992
+-o stratum+tcp://mine-xmv.leafpool.com:9991
 -u %XMVWALLET%.%WORKER%
 -p x
