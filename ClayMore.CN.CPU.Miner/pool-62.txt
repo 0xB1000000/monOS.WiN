@@ -10,6 +10,6 @@
 
 -pow7 1
 
--xpool stratum+tcp://xmv.baikalmine.com:????
+-xpool stratum+tcp://xmv.baikalmine.com:3333
 -xwal %XMVWALLET%
--xpsw %WORKER%:%MAIL%
+-xpsw x

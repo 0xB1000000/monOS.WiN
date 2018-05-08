@@ -19,8 +19,8 @@
     echo   -------------------------------------------
     echo   - CONTiNUE MiNiNG %Symbol%?
     echo   -------------------------------------------
-    echo   - [0] NO
-    echo   - [1] YES
+    echo   - [0] YES
+    echo   - [1] NO
     echo   -------------------------------------------
 
     echo;
@@ -31,7 +31,7 @@
 
     )
 
-    if '%ContinueLastRun%'=='1' goto START
+    if '%ContinueLastRun%'=='0' goto START
 
     cls
 
@@ -217,6 +217,8 @@
     goto LAUNCH
 
     :LAUNCH
+
+    del config-*.txt > nul 2>&1
 
     type pool-%Coin%%Pool%.txt settings.txt > config-%WORKER%.txt
 
