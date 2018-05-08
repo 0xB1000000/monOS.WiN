@@ -230,6 +230,8 @@
 
     :LAUNCH
 
+    del config-*.txt > nul 2>&1
+
     IF "%RIGTYPE%"=="1" IF EXIST "pool-%Coin%%Pool%-1.txt" (
 
         type pool-%Coin%%Pool%-1.txt settings.txt > config-%WORKER%.txt
